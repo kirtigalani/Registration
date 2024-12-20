@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "update";
+}
+
+<form method="post">
+    <table align="center" cellpadding="8" cellspacing="3" width="50%">
+        @foreach (System.Data.DataRow datarow in ViewBag.Data.Rows)
+        {
+           
+        <tr>
+            <td>First Name:</td>
+            <td>@datarow["FName"].ToString()</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>@datarow["LName"].ToString()</td>
+
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>@datarow["Gender"].ToString()</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>@datarow["city"].ToString()</td>
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td>@datarow["State"].ToString()</td>
+        </tr>
+        <tr>
+            <td>E-Mail:</td>
+            <td>@datarow["mail"].ToString()</td>
+        </tr>
+        <tr>
+            <td>D.O.B:</td>
+            <td>@datarow["DOB"].ToString()</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>@datarow["Address"].ToString()</td>
+        </tr>
+        }
+    </table>
+</form>

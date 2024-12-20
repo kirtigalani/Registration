@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<form method="post">
+    <table align="center" cellpadding="7" cellspacing="2" width="40%">
+   <tr>
+       <td colspan="2"><h1>Registration form</h1></td>
+   </tr> 
+        <tr>
+            <td>First Name:</td>       
+            <td><input type="text" name="FName" /></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="LName" /></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                &nbsp;<input type="radio" name="Gender" value="Male" /> Male        
+                <input type="radio" name="Gender" value="female" /> Female
+            </td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>
+                <select name="city">
+                    <option selected disabled>City</option>
+                    <option>Surat</option>
+                    <option>Delhi</option>
+                    <option>Goa</option>
+                    <option>Ahamdabad</option>
+                    <option>Mumbai</option>
+                </select> 
+            </td>
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td>
+                <select name="state">
+                    <option selected disabled>State</option>
+                    <option>Gujarat</option>
+                    <option>Rajasthan</option>
+                    <option>Assam</option>
+                    <option>Nepal</option>
+                    <option>Maharastra</option>
+                </select> 
+            </td>
+        </tr>
+        <tr>
+            <td>E-Mail:</td>
+            <td><input type="email" name="mail" /></td>
+        </tr>
+        <tr>
+            <td>D.O.B:</td>
+            <td>
+                <input type="date" name="DOB">
+            </td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><textarea cols="25" rows="6" placeholder="Address" name="Address"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" name="submit" /></td>
+        </tr>
+    </table>
+</form>
+
+<table class="table">
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Gender</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Email</th>
+    <th>D.O.B</th>
+    <th>Address</th>
+    <th>Delete</th>
+    <th>DataSet</th>
+
+    @foreach (System.Data.DataRow datarow in ViewBag.data.Rows)
+    {
+        <tr>
+            <td>@datarow["id"].ToString()</td>
+            <td>@datarow["FName"].ToString()</td>
+            <td>@datarow["LName"].ToString()</td>
+            <td>@datarow["Gender"].ToString()</td>
+            <td>@datarow["city"].ToString()</td>
+            <td>@datarow["State"].ToString()</td>
+            <td>@datarow["mail"].ToString()</td>
+            <td>@datarow["DOB"].ToString()</td>
+            <td>@datarow["Address"].ToString()</td>
+            <td><a href="Home/Delete/@datarow["id"].ToString()" class="btn btn-danger">Delete</a></td>
+            <td><a href="Home/update/@datarow["id"].ToString()" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
